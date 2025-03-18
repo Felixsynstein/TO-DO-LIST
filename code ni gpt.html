@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix's To-Do List</title>
+    <style>
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: darkslategrey;
+            display: flex;
+            justify-content: center;
+            align-items: center ;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            position: relative;
+            bottom: 450px; 
+            left: 150px;
+            color: black;
+            margin: 0;
+        }
+        p{
+            position: absolute;
+            top: 50px; 
+            left: 50px;
+            color: white;
+            margin: 0;
+        }
+
+        .container {
+            background: whitesmoke;
+            padding: 400px;
+            width: 500px; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 3px;
+            background: white;
+        }
+
+        button {
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .task-container {
+            margin-top: 20px;
+        }
+
+        .task {
+            background: white;
+            padding: 10px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .complete-btn {
+            background: green;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <p>New Task</p>
+    <div class="container">
+        <h2>New Task</h2>
+        <input type="text" id="taskInput" placeholder="Task">
+        <button onclick="addTask()">Add Task</button>
+        
+        <h3>Task Lists</h3>
+        <div id="taskList" class="task-container"></div>
+        
+        <h3>Completed Tasks</h3>
+        <div id="completedTasks" class="task-container"></div>
+    </div>
+    
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskList = document.getElementById("taskList");
+            if (taskInput.value.trim() === "") return;
+
+            const taskDiv = document.createElement("div");
+            taskDiv.classList.add("task");
+            taskDiv.textContent = taskInput.value;
+
+            const completeBtn = document.createElement("button");
+            completeBtn.textContent = "Complete";
+            completeBtn.classList.add("complete-btn");
+            completeBtn.onclick = function () {
+                taskDiv.classList.add("completed");
+                document.getElementById("completedTasks").appendChild(taskDiv);
+                taskDiv.removeChild(completeBtn);
+            };
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.classList.add("delete-btn");
+            deleteBtn.onclick = function () {
+                taskDiv.remove();
+            };
+
+            taskDiv.appendChild(completeBtn);
+            taskDiv.appendChild(deleteBtn);
+            taskList.appendChild(taskDiv);
+            taskInput.value = "";
+        }
+    </script>
+</body>
+</html>

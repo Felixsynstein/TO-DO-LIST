@@ -1,0 +1,87 @@
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: darkslategrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    position: relative;
+    bottom: 450px;
+    left: 150px;
+    color: black;
+}
+
+p {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: white;
+}
+
+.container {
+    background: whitesmoke;
+    padding: 30px;
+    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 3px;
+    background: white;
+}
+
+button {
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-container {
+    margin-top: 20px;
+}
+
+.task {
+    background: white;
+    padding: 10px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+a {
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+a[href*='complete_task'] {
+    color: green;
+}
+
+a[href*='delete_task'] {
+    color: red;
+}
+
+a:hover {
+    opacity: 0.8;
+}
