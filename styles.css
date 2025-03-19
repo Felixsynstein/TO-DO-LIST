@@ -1,77 +1,135 @@
 
 body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: darkslategrey;
+    background-image: url(bg\ pic.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    margin: 0;
-    padding: 20px;
+
 }
 
 h1 {
-    position: relative;
-    bottom: 450px;
-    left: 150px;
+    bottom: 300px;
+    left: 200px;
     color: black;
-}
-
-p {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    color: white;
+    font-family: 'Georgia';
+    text-decoration: underline;
 }
 
 .container {
-    background: whitesmoke;
-    padding: 30px;
-    width: 500px;
+    background: rgb(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px 5px;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 700px;
+    width: 1000px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.add_task{
+
+    display: inline-flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    min-height: 40px;
+    width: 93%;
+    border-radius: 10px;
+
+}
+
+
+.container > :not(h2,h3){
+    align-self: center;
+
+}
+
 
 input {
-    width: 80%;
+    width:825px;
     padding: 10px;
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 3px;
-    background: white;
+    background: rgb(255, 255, 255, 0.7);
+
 }
 
+
 button {
+    width: 75px;
+    height: 40px;
     background-color: dodgerblue;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.task-container {
-    margin-top: 20px;
+
+.task-container, .completed-tasks {
+    background-color: rgb(249, 249, 249, 0.7);
+    padding: 15px;
+    border-radius: 8px;
+    border: 3px solid black;
+    margin-top: 10px;
+    width: 90%;
+    height: 150px;
+    overflow: auto;
 }
+
+
 
 .task {
     background: white;
     padding: 10px;
     border: 2px solid black;
+    border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
+    width: auto; 
+    
 }
 
-.completed {
-    text-decoration: line-through;
-    opacity: 0.6;
+.Task{
+    background: rgb(255, 255, 255,0.7);
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    width: auto; 
+
 }
+
+
+.Task > span{
+    width: 650px; 
+}
+
+
+.completed :not(a) {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+
 
 a {
     text-decoration: none;
-    margin-left: 10px;
+    justify-content: space-between;
     font-size: 18px;
+    margin-left: 27px;
 }
 
 a[href*='complete_task'] {
@@ -83,5 +141,5 @@ a[href*='delete_task'] {
 }
 
 a:hover {
-    opacity: 0.8;
+    opacity: 0.9;
 }
